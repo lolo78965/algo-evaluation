@@ -4,7 +4,17 @@
  * Exemple : [1, 2, 3] et ["apple", "orange", "banana"] renverra : [1, "apple", 2, "orange", 3, "banana"]
  */
 function combine(tableau1, tableau2) {
-
+    var newTable = [];
+    if (tableau1.length !== tableau2.length) return
+    for (var i = 0; i < tableau1.length; i++) {
+        newTable[i * 2] = tableau1[i];
+        newTable[i * 2 + 1] = tableau2[i];
+    }
+    return newTable;
+}
+var tableau1Combine = [1, 2, 3, 4];
+var tableau2Combine = ['apple', 'banana', 'orange', 'lemon'];
+console.log(combine(tableau1Combine, tableau2Combine));
 }
 
 /**
@@ -14,6 +24,16 @@ function combine(tableau1, tableau2) {
  * Par exemple : rotate([1, 2, 3, 4, 5], 2) renverra [4, 5, 1, 2, 3] 
  */
 function rotate(tableau, offset) {
+    var newTable = [];
+    var count = offset;
+    for (var i = 0; i < tableau.length; i++) {
+        if (i + count >= tableau.length) count = -i;
+        newTable[i] = tableau[i + count];
+    }
+    return newTable
+}
+var tableauRotate = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log(rotate(tableauRotate, 2));
 
 }
 
